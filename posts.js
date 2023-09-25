@@ -19,10 +19,7 @@ Vue.createApp({
             axios.get('http://127.0.0.1:8000/api/posts?page=1&token=5u30e23n8fswko8oscgwsggkwokw0gc', {
             })
             .then(function (response) {
-                let allPosts = response.data.data
-                allPosts.forEach((item, index) => {
-                    mainThis.posts.push(item)
-                })
+                mainThis.posts = response.data.data
             })
 
         },
@@ -53,7 +50,8 @@ Vue.createApp({
                 })
                 .then(function (response) {
                     if (response.status === 201) {
-                        mainThis.successMessage = "New post created"                    
+
+                        mainThis.successMessage = "New post created"
                         let post = {};
                         post['id'] =  response.data.data.id
                         post['author'] =  mainThis.author
