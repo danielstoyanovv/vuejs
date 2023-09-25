@@ -21,7 +21,6 @@ Vue.createApp({
             .then(function (response) {
                 let allPosts = response.data.data
                 allPosts.forEach((item, index) => {
-                 //   console.log(item);
                     mainThis.posts.push(item)
                 })
             })
